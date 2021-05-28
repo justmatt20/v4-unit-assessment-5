@@ -7,6 +7,7 @@ module.exports = {
     register: async(req, res) => {
         const db = req.app.get('db')
         const {username, password} = req.body
+
         const existingUser = await db.find_user_by_username({username: username})
         if (existingUser[0]){
             return res.status(400).send('Username already exists.')

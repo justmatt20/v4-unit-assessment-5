@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './../../assets/helo_logo.png';
 import './Auth.css';
-import {Routes} from 'react-router-dom';
+
 
 class Auth extends Component {
   constructor(props) {

@@ -5,6 +5,9 @@ import newLogo from './../../assets/new_logo.png';
 import logoutLogo from './../../assets/shut_down.png';
 import './Nav.css';
 import {Link, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {updateUser, logoutUser} from '../../redux/reducer'
+
 
 class Nav extends Component {
   constructor(props) {
@@ -44,4 +47,12 @@ class Nav extends Component {
   }
 }
 
-export default withRouter(Nav);
+
+
+const mapStateToProps = (reduxStore) => {
+  return {
+
+  }
+}
+
+export default withRouter(connect(mapStateToProps()))(Nav);

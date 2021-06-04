@@ -6,7 +6,7 @@ import logoutLogo from './../../assets/shut_down.png';
 import './Nav.css';
 import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {updateUser, logoutUser} from '../../redux/reducer'
+import {updateUser, logout} from '../../redux/reducer'
 
 
 class Nav extends Component {
@@ -23,12 +23,14 @@ class Nav extends Component {
 
   getUser() {
     axios.get('/api/auth/me')
-    .then(res => 'replace this string with something useful')
+    .then(res => res.sendStatus(200))
+    .catch(err => err.sendStatus(400))
   }
   
   logout(res,req) {
     axios.post('/api/auth/logout')
-      .then(res => 'You have successfully logged out.')
+      .then(res => res.status(200).send())
+      .catch(err => err.sendStatus(400))
   }
   
   render() {
@@ -49,10 +51,11 @@ class Nav extends Component {
 
 
 
-const mapStateToProps = (reduxStore) => {
+const mapStateToProps = (reduxState) => {
   return {
-
+    logout: reduxState.reducer.logout,
+    updateUser: reduxState.reducer.updateUser
   }
 }
 
-export default withRouter(connect(mapStateToProps()))(Nav);
+export default withRouter(connect(mapStateToProps, {updateUser, logout}))(Nav);

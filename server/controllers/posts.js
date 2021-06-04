@@ -46,8 +46,8 @@ module.exports = {
 
       if (id) {
         db.create_post([id, title, content, img, date])
-        .then(res => res.status(200).send(posts))
-        .catch(err => send.status(403))
+        .then(res => res.sendStatus(200))
+        .catch(err => err.status(403))
       }
     },
     readPost: (req, res) => {

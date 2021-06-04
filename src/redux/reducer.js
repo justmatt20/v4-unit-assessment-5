@@ -1,32 +1,35 @@
-initialState: { 
-    username: ''
-    password: ''
+const initialState = { 
+    username: '',
+    profile_pic: ''
 }
-const ACTION_TYPE = ACTION_TYPE
-const LOGOUT = LOGOUT
+// const ACTION_TYPE = ACTION_TYPE
+// const LOGOUT = LOGOUT
 
-export const updateUser = (initialState) => {
-    const action = {
-        type: ACTION_TYPE,
+export function updateUser(userObj) {
+    return  {
+        type: "ACTION_TYPE",
+        payload: userObj
+    }
+}
+
+export function logout(initialState) {
+    return {
+        type: "LOGOUT",
         payload: initialState
     }
 }
 
-export const logoutUser = (initialState) => {
-    const action = {
-        type: LOGOUT,
-        payload: initialState
-    }
-}
-
-const reducer = (state = initialState, action) => {
+export default function reducer (state = initialState, action) {
     console.log(action)
     switch(action.type) {
-        case ACTION_TYPE:
-            return [...state];
-        case LOGOUT:
-            return state = ''
-}
+        case "ACTION_TYPE": {
+            return {...state};
+        }
+        case "LOGOUT": {
+            return {...state, state: state = ''}
+        }
+        default:
+    return state
 }
 
-export default reducer;
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './../../assets/helo_logo.png';
 import './Auth.css';
+import {connect} from 'react-redux';
+
 
 
 class Auth extends Component {
@@ -78,4 +80,10 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+const mapToStateToProps = (reduxState) => {
+  return {
+    updateUser: reduxState.reducer.updateUser
+  }
+}
+
+export default connect(null, mapToStateToProps)(Auth);

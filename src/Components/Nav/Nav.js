@@ -24,7 +24,6 @@ class Nav extends Component {
   getUser() {
     axios.get('/api/auth/me')
     .then(res => res.sendStatus(200))
-    .catch(err => err.sendStatus(400))
   }
   
   logout(res,req) {
@@ -51,11 +50,8 @@ class Nav extends Component {
 
 
 
-const mapStateToProps = (reduxState) => {
-  return {
-    logout: reduxState.reducer.logout,
-    updateUser: reduxState.reducer.updateUser
-  }
+function mapStateToProps(state) {
+  return state;
 }
 
-export default withRouter(connect(mapStateToProps, {updateUser, logout}))(Nav);
+export default withRouter(connect(mapStateToProps, { updateUser, logout })(Nav));

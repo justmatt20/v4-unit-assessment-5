@@ -3,7 +3,7 @@ import axios from 'axios';
 import logo from './../../assets/helo_logo.png';
 import './Auth.css';
 import {connect} from 'react-redux';
-
+import updateUser from '../../redux/reducer'
 
 
 class Auth extends Component {
@@ -80,10 +80,10 @@ class Auth extends Component {
   }
 }
 
-const mapToStateToProps = (reduxState) => {
-  return {
-    updateUser: reduxState.reducer.updateUser
-  }
-}
+// const mapStateToProps = (reduxState) => {
+//   return {
+//     updateUser: reduxState.reducer.updateUser
+//   }
+// }
 
-export default connect(null, mapToStateToProps)(Auth);
+export default connect(null, {updateUser})(Auth);

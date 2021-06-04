@@ -74,12 +74,26 @@
 
   @media (max-width: 400px) {
     .auth-container {
-      width: auto;
-      height: auto;
-    }
-    .dark-button {
       display: flex;
-      justify-content: center;
+      align-content: center;
       justify-content: space-between;
+      box-shadow: none ;
+      border-radius: 0;
+      background-image: none;
+      width: 70vh;
+    }
+    .auth-button-container {
+      display: flex;
+      width: 80%;
+      justify-content: center;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+    .auth-input-box {
+      width: 20rem;
+      margin-bottom: .5rem;
+    }
+    input {
+      width: 100%;
     }
   }

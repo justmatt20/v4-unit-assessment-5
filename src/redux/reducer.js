@@ -5,31 +5,31 @@ const initialState = {
 // const ACTION_TYPE = ACTION_TYPE
 // const LOGOUT = LOGOUT
 
-export function updateUser(userObj) {
-    return  {
-        type: "ACTION_TYPE",
-        payload: userObj
-    }
-}
-
-export function logout(initialState) {
-    return {
-        type: "LOGOUT",
-        payload: initialState
-    }
-}
-
 export default function reducer (state = initialState, action) {
     console.log(action)
+    const {payload} = action;
     switch(action.type) {
         case "ACTION_TYPE": {
-            return {...state};
+            return {...state, username: payload.username, profile_pic: payload.profile_pic};
         }
         case "LOGOUT": {
-            return {...state, state: state = ''}
+            return initialState
         }
         default:
     return state
 }
 
+}
+
+export function updateUser(user) {
+    return  {
+        type: "ACTION_TYPE",
+        payload: user
+    }
+}
+
+export function logout() {
+    return {
+        type: "LOGOUT",
+    }
 }
